@@ -11,5 +11,6 @@ RUN make install_glide
 RUN make install_deps
 RUN make build
 
-COPY hawkular-openshift-agent $HAWKULAR_AGENT_HOME/
+RUN mkdir -p /opt/hawkular
+RUN cp hawkular-openshift-agent /opt/hawkular/hawkular-openshift-agent
 ENTRYPOINT ["/opt/hawkular/hawkular-openshift-agent"]
